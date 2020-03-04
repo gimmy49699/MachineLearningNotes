@@ -3,7 +3,7 @@ My study&amp;review notes on machine learning.
 
 code enviroment:
 
-Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.19.1 | Keras 2.2.4
+Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
 
 20-02-29 updates:
   - Logistic Regression Algorithm & Implementing with numpy.
@@ -17,3 +17,9 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.19.1 | Keras 2.2.4
       - PCA cares about the principal features of datas while LDA cares about seprating each categories.
       - Both eigenvalue decomposition and singluar value decomposition can be used in PCA or LDA.
       - Better centeralizing the datas while using PCA.
+
+20-03-04 updates:
+  - Decision Tree & Implementing with numpy.
+      - Implemented ID3.
+      - Information entropy, conditional entropy, information gain, information gain ratio.
+      - Recursively building decision tree and pruning.
