@@ -7,12 +7,12 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
 
 20-02-29 updates:
   - Logistic Regression Algorithm & Implementing with numpy.
-  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/LR.png" />
+  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/LR.jpg" />
 
 20-03-02 updates:
   - Linear Discriminant Analysis & Implementing with numpy.
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/wl3aDataDistribution.png" />
-  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/LDA.png" />
+  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/LDA.jpg" />
   
   - Principal Component Analysis & Implementing with numpy.
       - Both PCA and LDA are methods of reducing feature dimensions.
@@ -21,7 +21,7 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
       - PCA cares about the principal features of datas while LDA cares about seprating each categories.
       - Both eigenvalue decomposition and singluar value decomposition can be used in PCA or LDA.
       - Better centeralizing the datas while using PCA.
-    <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/PCA.png" />
+    <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/PCA.jpg" />
 
 20-03-04 updates:
   - Decision Tree & Implementing with numpy.
