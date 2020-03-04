@@ -7,6 +7,7 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
 
 20-02-29 updates:
   - Logistic Regression Algorithm & Implementing with numpy.
+  https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/MyLR.png
 
 20-03-02 updates:
   - Linear Discriminant Analysis & Implementing with numpy.
