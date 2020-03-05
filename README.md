@@ -34,6 +34,7 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
   - Neural Network & Implementing with numpy.
     - Implemented basic fully connected neural network with numpy.
     - Sigmoid activation function only, updates in subsequent version.
+      - newly updated model architecture: tanh -> tanh -> ... -> sigmoid
     - Basic back propagation algorithm only, updates in subsequent version.
     - Choose hidden layers, hidden units, epochs and batch size artificially before start training.
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/NN.jpg" height="300" div align=center>
