@@ -28,7 +28,7 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
       - Implemented ID3.
       - Information entropy, conditional entropy, information gain, information gain ratio.
       - Recursively building decision tree and pruning.
-    <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/decisiontree.png" height="300" div align=center />
+    <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/decisiontree.png" div align=center />
 
 20-03-05 updates:
   - Neural Network & Implementing with numpy.
