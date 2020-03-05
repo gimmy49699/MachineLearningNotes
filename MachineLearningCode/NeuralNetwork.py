@@ -1,7 +1,8 @@
 '''
     Implementing of Neural Network.
     Basic neural network, one input layer, one hidden layer and one output layer.
-    Loss function ∑-ylog(y')-(1-y)log(1-y'), activation function g(x) = 1/(1+exp(-x)); 
+    Loss function ∑-ylog(y')-(1-y)log(1-y');
+    Activation function sigmoid(x) = 1/(1+exp(-x)), tanh(x) = (exp(x) - exp(-x))/(exp(x) + exp(-x)); 
 '''
 import sklearn
 import keras
