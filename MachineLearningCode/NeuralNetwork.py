@@ -14,7 +14,7 @@ from sklearn.datasets import make_moons
 
 class MyNeuralNetwork(object):
     """docstring for MyNeuralNetwork"""
-    def __init__(self, data, output_num, hidden_layer, hidden_nums, epoch, batch=1, lr=0.1):
+    def __init__(self, data, output_num, hidden_layer, hidden_nums, epoch, batch=1, lr=0.01):
         super(MyNeuralNetwork, self).__init__()
         self.data_x, self.data_y = data
         self.output_num = output_num
@@ -61,9 +61,11 @@ class MyNeuralNetwork(object):
     def _forward(self, data_x, data_y):
         n_out = data_y.shape[-1]
         self.forward = {}
-        self.forward["h1"] = self.sigmoid(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
+        self.forward["h1"] = np.tanh(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
+        # self.forward["h1"] = self.sigmoid(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
         for i in range(1, self.hidden_layer):
-            self.forward["h"+str(i+1)] = self.sigmoid(np.matmul(self.forward["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
+            self.forward["h"+str(i+1)] = np.tanh(np.matmul(self.forward["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
+            # self.forward["h"+str(i+1)] = self.sigmoid(np.matmul(self.forward["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
         self.forward["O"] = self.sigmoid(np.reshape(np.matmul(self.forward["h"+str(self.hidden_layer)], \
             self.model["W_h"+str(self.hidden_layer)]) + self.model["b_h"+str(self.hidden_layer)], (-1, self.output_num)))
         if self.forward["O"].shape[-1] != n_out:
@@ -76,12 +78,15 @@ class MyNeuralNetwork(object):
         self.backward["delta_b_h"+str(self.hidden_layer)] = self.backward["diff_"+str(self.hidden_layer)]
         for i in range(self.hidden_layer-1, 0, -1):
             tmp_1 = np.matmul(self.backward["diff_"+str(i+1)], np.transpose(self.model["W_h"+str(i+1)], [0, 2, 1]))
-            tmp_2 = np.multiply(self.forward["h"+str(i+1)], (1-self.forward["h"+str(i+1)]))
+            tmp_2 = 1 - np.tanh(self.forward["h"+str(i+1)])**2
+            # tmp_2 = np.multiply(self.forward["h"+str(i+1)], (1-self.forward["h"+str(i+1)]))
             self.backward["diff_"+str(i)] = np.multiply(tmp_1, tmp_2)
             self.backward["delta_W_h"+str(i)] = np.matmul(np.transpose(self.forward["h"+str(i)], [0, 2, 1]), self.backward["diff_"+str(i)])
             self.backward["delta_b_h"+str(i)] = self.backward["diff_"+str(i)]
         self.backward["diff_0"] = np.multiply(np.matmul(self.backward["diff_1"], np.transpose(self.model["W_h1"], [0, 2, 1])),
-                                              np.multiply(self.forward["h1"], (1-self.forward["h1"])))
+                                              1 - np.tanh(self.forward["h1"])**2)
+                                              # np.multiply(self.forward["h1"], (1-self.forward["h1"])))
+
         self.backward["delta_Wx"] = np.matmul(np.transpose(data, [0, 2, 1]), self.backward["diff_0"])
         self.backward["delta_bx"] = self.backward["diff_0"]
     
@@ -115,9 +120,11 @@ class MyNeuralNetwork(object):
 
     def predict(self, data_x):
         self.predict = {}
-        self.predict["h1"] = self.sigmoid(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
+        self.predict["h1"] = np.tanh(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
+        # self.predict["h1"] = self.sigmoid(np.matmul(data_x, self.model["Wx"]) + self.model["bx"])
         for i in range(1, self.hidden_layer):
-            self.predict["h"+str(i+1)] = self.sigmoid(np.matmul(self.predict["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
+            self.predict["h"+str(i+1)] = np.tanh(np.matmul(self.predict["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
+            # self.predict["h"+str(i+1)] = self.sigmoid(np.matmul(self.predict["h"+str(i)], self.model["W_h"+str(i)]) + self.model["b_h"+str(i)])
         self.predict["O"] = self.sigmoid(np.reshape(np.matmul(self.predict["h"+str(self.hidden_layer)], \
             self.model["W_h"+str(self.hidden_layer)]) + self.model["b_h"+str(self.hidden_layer)], (-1, self.output_num)))
         return np.rint(self.predict["O"])
@@ -151,8 +158,8 @@ if __name__ == "__main__":
     # Keras basic fully connected Neural Netwrok.
     # Set the hyper-parameters as the same as my NN model
     model = keras.models.Sequential()
-    model.add(keras.layers.Dense(units=8, activation='sigmoid', input_dim=2))
-    model.add(keras.layers.Dense(units=4, activation='sigmoid'))
+    model.add(keras.layers.Dense(units=8, activation='tanh', input_dim=2))
+    model.add(keras.layers.Dense(units=4, activation='tanh'))
     model.add(keras.layers.Dense(units=1, activation='sigmoid'))
     sgd = keras.optimizers.SGD(lr=0.1)
     model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['acc'])
