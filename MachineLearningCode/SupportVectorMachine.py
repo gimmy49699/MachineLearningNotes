@@ -40,7 +40,7 @@
             4). 0 <= new_alpha <= C and y_i*g(x_i) == 1;
             5). new_alpha == C and y_i*g(x_i) <= 1;
             6). Max iteration times.
-        9) If satisfied 8), return new_alpha, or go to 2).
+        9) If 8) is satisfied, return new_alpha, or go to 2).
 '''
 import numpy as np
 import matplotlib.pyplot as plt
@@ -144,16 +144,20 @@ class MySupportVectorMachine(object):
         while itertimes < self.maxiter:
             print("itertime: ", itertimes + 1)
             itertimes += 1
+            # pick up alpha_1 and alpha_2
             a1 = self._calAlpha1idx()
             a2 = self._calAlpha2idx(a1)
+            # cal K11, K22 and K12
             K11 = self.kernel(self.datax[a1], self.datax[a1])
             K22 = self.kernel(self.datax[a2], self.datax[a2])
             K12 = self.kernel(self.datax[a1], self.datax[a2])
             K = K11 + K22 - 2*K12
+            # cal new_alpha_1, new_alpha_2
             a2new = self.alpha[a2] + ((self.datay[a2]*(self.Ecache[a1] - self.Ecache[a2])))/K
             L, H = self._calLH(self.datay[a1], self.datay[a2], self.alpha[a1], self.alpha[a2])
             a2new = self._calAlphaNew(L, H, a2new)
             a1new = self.alpha[a1] + self.datay[a1]*self.datay[a2]*(self.alpha[a2]-a2new)
+            # update bias beta and E
             b1new = self.beta + (self.alpha[a1]-a1new)*self.datay[a1]*K11 \
                 + (self.alpha[a2] - a2new)*self.datay[a2]*K22 - self.Ecache[a1]
             b2new = self.beta + (self.alpha[a1]-a1new)*self.datay[a1]*K11 \
@@ -166,6 +170,7 @@ class MySupportVectorMachine(object):
                 self.beta = (b1new + b2new) / 2
             self.alpha[a1], self.alpha[a2] = a1new, a2new
             self.Ecache[a1], self.Ecache[a2] = self._calE(a1), self._calE(a2)
+            # cheak stop conditions
             if self._cheak == True:
                 break
 
