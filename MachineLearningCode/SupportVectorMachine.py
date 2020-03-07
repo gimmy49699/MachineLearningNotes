@@ -17,8 +17,8 @@
             new_unc_alpha_2 = alpha_2 + y_2(E1-E2) / (K11 + K22- 2*K12)
             where Kij = kernel<x_i, x_j>
         5) Calculate lower bound and upper bound and update alpha_2 by:
-            // L = max(0, alpha_2 + alpha_1 - C), H = min(C, alpha_2 + alpha_1) if y_1 == y_2;
-            \\ L = max(0m alpha_2 - alpha_1), H = min(C, C + alpha_2 - alpha_1) if y_1 != y_2.
+            / L = max(0, alpha_2 + alpha_1 - C), H = min(C, alpha_2 + alpha_1) if y_1 == y_2;
+            \ L = max(0, alpha_2 - alpha_1), H = min(C, C + alpha_2 - alpha_1) if y_1 != y_2.
 
                            /       H            if new_unc_alpha_2 > H;
             new_alpha_2 = -  new_unc_alpha_2    if l <= new_unc_alpha_2 <= H;
