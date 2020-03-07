@@ -38,3 +38,10 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
     - Basic back propagation algorithm only, updates in subsequent version.
     - Choose hidden layers, hidden units, epochs and batch size artificially before start training.
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/NN.jpg" height="300" div align=center>
+
+20-03-08 updates:
+  - Support Vector Machine & Implementing with numpy.
+    - Implementing a SVC with soft margin and kernel funcion (linear kernel, RBFkernel).
+    - The implementing of SMO algorithm in this project can be further optimized.
+    - The mathematical principals in SVM and formulas derivation.
+  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/SVM.jpg" height="300" div align=center>
