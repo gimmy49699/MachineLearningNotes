@@ -50,4 +50,4 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
     - Calculate discrete features by statistics.
     - Calculate continuous features by Gaussian distribution.
     - Predict test sample by calculating argmax{c} p(c)∏p(x|c).
-  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/nbc.png" height="300" div align=center>
+  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/nbc.png" div align=center>
