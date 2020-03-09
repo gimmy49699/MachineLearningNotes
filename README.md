@@ -56,5 +56,6 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
   - Clustering algorithm K-means & Implementing with numpy.
     - Distance between tow vectors, p-norm or cosine similarity.
  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/kmeans.jpg" height="300" div align=center>
+  
   - K-Nearest Neighbors & Implementing with numpy.
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/knn.png" div align=center>
