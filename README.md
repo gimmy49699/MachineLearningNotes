@@ -64,6 +64,6 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
   - EM Algorithm
     - Gaussian Mixture Model (in EMAlgorithm.py)
     - The mathematical principals are as follow:
-<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm1.jpg" height="300" div align=center>
-<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm2.jpg" height="300" div align=center>
-<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm3.jpg" height="300" div align=center>
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm1.JPG" height="300" div align=center>
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm2.JPG" height="300" div align=center>
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm3.JPG" height="300" div align=center>
