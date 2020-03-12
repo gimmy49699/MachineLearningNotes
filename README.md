@@ -52,10 +52,18 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
     - Predict test sample by calculating argmax{c} p(c)∏p(x|c).
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/nbc.png" div align=center>
 
-20-03-09 updates"
+20-03-09 updates:
   - Clustering algorithm K-means & Implementing with numpy.
     - Distance between tow vectors, p-norm or cosine similarity.
  <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/kmeans.jpg" height="300" div align=center>
   
   - K-Nearest Neighbors & Implementing with numpy.
   <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/knn.png" div align=center>
+  
+20-03-12 updates:
+  - EM Algorithm
+    - Gaussian Mixture Model (in EMAlgorithm.py)
+    - The mathematical principals are as follow:
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm1.jpg" height="300" div align=center>
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm2.jpg" height="300" div align=center>
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/gmm3.jpg" height="300" div align=center>
