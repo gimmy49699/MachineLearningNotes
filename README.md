@@ -75,3 +75,7 @@ Python 3.6.5 | Tensorflow 1.13.1 | Pytorch 1.2.0 | Sci-kit 0.22.1 | Keras 2.2.4
   - Hidden Markov Model
     - Viterbi algorithm.
 <img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/hmm.png" div align=center />
+
+20-03-16 updates:
+  - Chinese part of speech tagging by HMM
+<img src="https://github.com/gimmy49699/MachineLearningNotes/blob/master/MachineLearningCode/pictures/chnposhmm.png" div align=center />
