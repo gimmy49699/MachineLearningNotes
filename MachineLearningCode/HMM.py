@@ -35,22 +35,27 @@ class MyHMM(object):
         self.n_os = len(self.obserStates)
 
     def _predict(self, data):
-        start = [[[x], self.startProbs[x]*emissionMat[x][data[0]]] for x in range(self.n_hs)]
+        start = [[[x], np.log(self.startProbs[x]*self.emissionMat[x][data[0]])] for x in range(self.n_hs)]
         for oidx in range(1, len(data)):
             for hidx in range(self.n_hs):
-                tmp = [start[hidx][1]*transMat[hidx][x]*emissionMat[x][data[oidx]] for x in range(self.n_hs)]
+                tmp = [start[hidx][1]+np.log(self.transMat[hidx][x])+np.log(self.emissionMat[x][data[oidx]]) for x in range(self.n_hs)]
                 maxobs = tmp.index(max(tmp))
                 start[hidx][0].append(maxobs)
                 start[hidx][1] = tmp[maxobs]
-        maxprob = 0.0
+        maxprob = start[0][1]
         for hidx in range(self.n_hs):
             if start[hidx][1] >= maxprob:
                 res = start[hidx][0]
                 maxprob = start[hidx][1]
+        return res, maxprob
+
+    def _showRes(self, data):
+        res, maxprob = self._predict(data)
         showmsg = "The corresponding hidden states are: " + "->".join([self.hiddenStates[x] for x in res]) + " with probability: {:>.6f}".format(maxprob)
         print("The observation states are: " + '-'.join([self.obserStates[x] for x in data]))
         print(showmsg)
-        print('The probability of the observation states are: {:>.6f}'.format(np.sum(np.array(start)[:, 1])))
+
+
 
 if __name__ == "__main__":
     # set-ups
@@ -60,11 +65,11 @@ if __name__ == "__main__":
                 [0.4, 0.6]]
     emissionMat = [[0.4, 0.5, 0.1],
                    [0.1, 0.3, 0.6]]
-    test_data = [0, 1, 2, 1]
-    startProbs = [0.6, 0.4]
+    test_data = [0, 2, 1, 2]
+    startProbs = [0.4, 0.6]
     # Build my HMM model
     myhmm = MyHMM(startProbs=startProbs, hiddenStates=hiddenStates, obserStates=obserStates, transMat=transMat, emissionMat=emissionMat)
-    myhmm._predict(test_data)
+    myhmm._showRes(test_data)
     # Sci-kit HMM model
     skhmm = hmm.MultinomialHMM(n_components=2)
     skhmm.startprob_ = startProbs
