@@ -40,7 +40,7 @@
             4). 0 <= new_alpha <= C and y_i*g(x_i) == 1;
             5). new_alpha == C and y_i*g(x_i) <= 1;
             6). Max iteration times.
-        9) If 8) is satisfied, return new_alpha, or go to 2).
+        9) If 8) is satisfied, return new_alpha, else go to 2).
 '''
 import numpy as np
 import matplotlib.pyplot as plt
